@@ -1,4 +1,4 @@
-package entitis;
+package entities;
 
 import java.time.LocalDateTime;
 
@@ -12,108 +12,87 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "profesores")
-public class profesor {
-	
+@Table(name = "aprendices")
+public class Aprendiz {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
 	
-	
-	@Column(name = "nombres", length = 100, nullable = false)
+	@Column(name = "nombres")
 	private String nombre;
 	
-	
-	@Column(name = "apellido", length = 100, nullable = false)
+	@Column(name = "apellidos")
 	private String apellido;
 	
 	@ManyToOne
-	@JoinColumn(name = "especialidad_id", nullable = false)
-	private Especialidad especialidad;
+	@JoinColumn (name = "grado_id", nullable = false)
+	private Grado grado; 
 	
-	@Column(name = "created_at",  nullable = false)
+	@Column(name = "created_at", nullable = false)
 	private LocalDateTime createdAt;
 	
-	
-	@Column(name = "updated_at")
+	@Column(name = "update_at")
 	private LocalDateTime updatedAt;
 	
-	
-	@Column(name = "delete_at")
+	@Column(name = "deleted_at")
 	private LocalDateTime deletedAt;
 
-
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getNombre() {
+	public   String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
 	public String getApellido() {
 		return apellido;
 	}
-
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 
-
-	public Especialidad getEspecialidad() {
-		return especialidad;
+	public Grado getGrado() {
+		return grado;
 	}
 
-
-	public void setEspecialidad(Especialidad especialidad) {
-		this.especialidad = especialidad;
+	public void setGrado(Grado grado) {
+		this.grado = grado;
 	}
-
 
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-
 
 	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
 
-
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-
 	public LocalDateTime getDeletedAt() {
 		return deletedAt;
 	}
-
 
 	public void setDeletedAt(LocalDateTime deletedAt) {
 		this.deletedAt = deletedAt;
 	}
 	
 	
-	
-	
-
 }
